@@ -10,18 +10,18 @@ public class Driver {
 
     // Default constructor initializes with default values
     public Driver() {
+        this.name = "Driver" + id_counter; // Default name based on ID
         this.id = id_counter++;
         this.x = 0;
         this.y = 0;
-        this.name = "driver" + this.id; // Default name based on ID
     }
 
     // Constructor with coordinates and name
     public Driver(int x, int y, String name) {
+        this.name = name;
         this.id = id_counter++;
         this.x = x;
         this.y = y;
-        this.name = name;
     }
 
     // Getters 

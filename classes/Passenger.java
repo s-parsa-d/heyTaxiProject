@@ -1,81 +1,39 @@
+package classes;
 public class Passenger {
-    private String firstName;
-    private String lastName;
-    private int fromX;
-    private int fromY;
-    private int toX;
-    private int toY;
-    private static int nextId = 1;
-    private final int id;
+    
+    // Static counter for unique IDs
+    private static int id_counter = 1; 
+    private String name;
+    private int id = 1;
+    private int x;
+    private int y;
 
+    // Default constructor initializes with empty name and coordinates (0,0)
     public Passenger() {
-        this.firstName = "";
-        this.lastName = "";
-        this.fromX = 0;
-        this.fromY = 0;
-        this.toX = 0;
-        this.toY = 0;
-        this.id = nextId++;
+        this.name = "";
+        this.x = 0;
+        this.y = 0;
+        this.id = id_counter++;
     }
 
-    public Passenger(String firstName, String lastName, int fromX, int fromY, int toX, int toY) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.fromX = fromX;
-        this.fromY = fromY;
-        this.toX = toX;
-        this.toY = toY;
-        this.id = nextId++;
+    // Constructor with coordinates and name
+    public Passenger(int x, int y, String name) {
+        this.name = name;
+        this.x = x;
+        this.y = y;
+        this.id = id_counter++;
     }
 
-    public String getFirstName() {
-        return firstName;
+    // Getters
+    public String getName() {
+        return name;
     }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public int getX() {
+        return x;
     }
-
-    public String getLastName() {
-        return lastName;
+    public int getY() {
+        return y;
     }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public int getFromX() {
-        return fromX;
-    }
-
-    public void setFromX(int fromX) {
-        this.fromX = fromX;
-    }
-
-    public int getFromY() {
-        return fromY;
-    }
-
-    public void setFromY(int fromY) {
-        this.fromY = fromY;
-    }
-
-    public int getToX() {
-        return toX;
-    }
-
-    public void setToX(int toX) {
-        this.toX = toX;
-    }
-
-    public int getToY() {
-        return toY;
-    }
-
-    public void setToY(int toY) {
-        this.toY = toY;
-    }
-
     public int getId() {
         return id;
     }

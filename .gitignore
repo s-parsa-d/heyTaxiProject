@@ -1,0 +1,56 @@
+# فایل‌های باینری کلاس
+*.class
+
+# خروجی build
+/build/
+/bin/
+/out/
+
+# فایل‌های مربوط به Maven
+target/
+
+# فایل‌های مربوط به Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# فایل‌های کش Gradle
+**/build/
+.gradle/
+!**/src/
+
+# لاگ‌ها
+*.log
+
+# تنظیمات Eclipse
+*.launch
+.settings/
+.project
+.classpath
+
+# تنظیمات IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# سیستم‌عامل‌ها
+.DS_Store
+Thumbs.db
+
+# فایل‌های محیط توسعه
+.vscode/
+
+# فایل‌های محیط مجازی جاوا یا SDK
+*.jks
+*.keystore
+
+# Ignore test reports
+/test-output/
+surefire-reports/
+
+# Ignore temporary files
+*.tmp
+*.bak
+*.swp

@@ -1,5 +1,6 @@
 package classes;
 import java.util.ArrayList;
+import javax.xml.crypto.Data;
 
 public class Owner {
     // List to store Driver objects
@@ -8,6 +9,12 @@ public class Owner {
     private ArrayList<Passenger> passengers = new ArrayList<>();
 
     private int factor;
+
+    private Passenger currentPassenger;
+    private Driver currentDriver;
+    private Date tripStartTime;
+    private Date tripEndTime;
+    private String tripStatus = "Pending" ; // وضعیت اولیه
 
     public Owner() {
         this.factor = 1; // مقدار پیش‌فرض برای ضریب قیمت
@@ -66,5 +73,30 @@ public class Owner {
         }
 
         return nearest;
+    }
+
+    // شروع سفر
+    public void startTrip(Passenger passenger, Driver driver) {
+        if (!passengers.contains(passenger) || !drivers.contains(driver)) {
+            System.out.println("passenger or driver not valid !");
+            return;
+        }
+
+        this.currentPassenger = passenger;
+        this.currentDriver = driver;
+        this.tripStartTime = new Date();
+        this.tripStatus = "Ongoing";
+
+        System.out.println("your trip has begun at this time :  " + tripStartTime);
+    }
+
+    public void endTrip(Passenger passenger , Driver driver){
+        if(!tripStatus.equals("Ongoing")){
+            System.out.println("there is no trip !");
+            return; 
+        }
+        this.tripEndTime = new Date();
+        this.tripStatus = "Complete";
+        System.out.println("your trip ends at this time :  " + tripEndTime);
     }
 }

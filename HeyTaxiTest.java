@@ -15,16 +15,16 @@ public class HeyTaxiTest {
         System.out.println("Driver Name: " + driver2.getName());
         System.out.println("Driver Coordinates: (" + driver2.getX() + ", " + driver2.getY() + ")");
 
-        // Create a new passenger with default values
-        Passenger passenger1 = new Passenger();
-        System.out.println("Passenger ID: " + passenger1.getId());
-        System.out.println("Passenger Name: " + passenger1.getName());
-        System.out.println("Passenger Coordinates: (" + passenger1.getX() + ", " + passenger1.getY() + ")");
+        // // Create a new passenger with default values
+        // Passenger passenger1 = new Passenger();
+        // System.out.println("Passenger ID: " + passenger1.getId());
+        // System.out.println("Passenger Name: " + passenger1.getName());
+        // System.out.println("Passenger Coordinates: (" + passenger1.getX() + ", " + passenger1.getY() + ")");
 
-        // Create a new passenger with specific values
-        Passenger passenger2 = new Passenger(5, 15, "Alice");
-        System.out.println("Passenger ID: " + passenger2.getId());
-        System.out.println("Passenger Name: " + passenger2.getName());
-        System.out.println("Passenger Coordinates: (" + passenger2.getX() + ", " + passenger2.getY() + ")");
+        // // Create a new passenger with specific values
+        // Passenger passenger2 = new Passenger(5, 15, "Alice");
+        // System.out.println("Passenger ID: " + passenger2.getId());
+        // System.out.println("Passenger Name: " + passenger2.getName());
+        // System.out.println("Passenger Coordinates: (" + passenger2.getX() + ", " + passenger2.getY() + ")");
     }
 }

@@ -12,7 +12,7 @@ public class Travel {
     public Travel(Driver driver, Passenger passenger) {
         this.driver = driver;
         this.passenger = passenger;
-        this.distance = abs(driver.getX() - passenger.getX()) + abs(driver.getY() - passenger.getY());
+        // this.distance = abs(driver.getX() - passenger.getX()) + abs(driver.getY() - passenger.getY());
         this.fare = 20 + (distance * 2); // Base fare + distance charge
     }
 

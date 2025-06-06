@@ -33,51 +33,35 @@ public class Passenger {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public int getFromX() {
         return fromX;
     }
 
-    public void setFromX(int fromX) {
-        this.fromX = fromX;
-    }
-
     public int getFromY() {
         return fromY;
-    }
-
-    public void setFromY(int fromY) {
-        this.fromY = fromY;
     }
 
     public int getToX() {
         return toX;
     }
 
-    public void setToX(int toX) {
-        this.toX = toX;
-    }
-
+   
     public int getToY() {
         return toY;
     }
 
-    public void setToY(int toY) {
-        this.toY = toY;
-    }
-
     public int getId() {
         return id;
+    }
+
+    public double calculateDistance() {
+        int dx = toX - fromX;
+        int dy = toY - fromY;
+        double distance = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+        return distance;
     }
 }

@@ -38,4 +38,9 @@ public class Driver {
         return id;
     }
 
+    public double distanceTo(int x, int y) {
+        int dx = this.x - x;
+        int dy = this.y - y;
+        return Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+    }
 }

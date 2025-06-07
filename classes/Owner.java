@@ -1,32 +1,33 @@
 package classes;
 import java.util.ArrayList;
-import javax.xml.crypto.Data;
+import java.util.Date;
+
 
 public class Owner {
-    // List to store Driver objects
-    private ArrayList<Driver> drivers = new ArrayList<>();
-    // List to store Passenger objects
-    private ArrayList<Passenger> passengers = new ArrayList<>();
 
-    private int factor;
+    private final int BASERATE = 20;
+    private final String[] STATUS = {"PENDING", "ONGOING", "END", "CANCEL"}; 
+
+    private ArrayList<Driver> drivers = new ArrayList<>();
+    private ArrayList<Passenger> passengers = new ArrayList<>();
 
     private Passenger currentPassenger;
     private Driver currentDriver;
     private Date tripStartTime;
     private Date tripEndTime;
-    private String tripStatus = "Pending" ; // وضعیت اولیه
+    private String tripStatus =  STATUS[0]; // وضعیت اولیه
 
-    public Owner() {
-        this.factor = 1; // مقدار پیش‌فرض برای ضریب قیمت
-    }
+    // public Owner() {
+    //     this.factor = 1; // مقدار پیش‌فرض برای ضریب قیمت
+    // }
 
-    public int getFactor() {
-        return factor;
-    }
+    // public int getFactor() {
+    //     return factor;
+    // }
 
-    public void setFactor(int factor) { 
-        this.factor = factor;
-    }
+    // public void setFactor(int factor) { 
+    //     this.factor = factor;
+    // }
 
     // Getter for drivers list
     public ArrayList<Driver> getDrivers() {
@@ -51,7 +52,7 @@ public class Owner {
     // محاسبه قیمت بر اساس فاصله یک مسافر خاص
     public double calculatePrice(Passenger passenger) {
         double distance = passenger.calculateDistance();
-        return distance * factor;
+        return BASERATE + distance * 2 ;
     }
 
     public Driver findNearestDriver(Passenger passenger) {
@@ -85,7 +86,7 @@ public class Owner {
         this.currentPassenger = passenger;
         this.currentDriver = driver;
         this.tripStartTime = new Date();
-        this.tripStatus = "Ongoing";
+        this.tripStatus = STATUS[1];
 
         System.out.println("your trip has begun at this time :  " + tripStartTime);
     }
@@ -96,7 +97,7 @@ public class Owner {
             return; 
         }
         this.tripEndTime = new Date();
-        this.tripStatus = "Complete";
+        this.tripStatus = STATUS[2];
         System.out.println("your trip ends at this time :  " + tripEndTime);
     }
 }

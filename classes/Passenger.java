@@ -10,8 +10,9 @@ public class Passenger {
     private final int id;
 
     public Passenger() {
-        this.firstName = "";
-        this.lastName = "";
+        this.firstName = "name" + nextId;
+        this.lastName = "lastName" + nextId;
+        // Default coordinates
         this.fromX = 0;
         this.fromY = 0;
         this.toX = 0;
@@ -49,7 +50,6 @@ public class Passenger {
         return toX;
     }
 
-   
     public int getToY() {
         return toY;
     }

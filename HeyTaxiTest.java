@@ -15,16 +15,20 @@ public class HeyTaxiTest {
         System.out.println("Driver Name: " + driver2.getName());
         System.out.println("Driver Coordinates: (" + driver2.getX() + ", " + driver2.getY() + ")");
 
-        // // Create a new passenger with default values
-        // Passenger passenger1 = new Passenger();
-        // System.out.println("Passenger ID: " + passenger1.getId());
-        // System.out.println("Passenger Name: " + passenger1.getName());
-        // System.out.println("Passenger Coordinates: (" + passenger1.getX() + ", " + passenger1.getY() + ")");
+        // Create a new passenger with default values
+        Passenger passenger1 = new Passenger();
+        System.out.println("Passenger ID: " + passenger1.getId());
+        System.out.println("Passenger Name: " + passenger1.getFirstName() + " " + passenger1.getLastName());
+        System.out.println("Passenger From: (" + passenger1.getFromX() + ", " + passenger1.getFromY() + ")");
+        System.out.println("Passenger To: (" + passenger1.getToX() + ", " + passenger1.getToY() + ")");
+        System.out.println("Passenger Distance: " + passenger1.calculateDistance());
 
-        // // Create a new passenger with specific values
-        // Passenger passenger2 = new Passenger(5, 15, "Alice");
-        // System.out.println("Passenger ID: " + passenger2.getId());
-        // System.out.println("Passenger Name: " + passenger2.getName());
-        // System.out.println("Passenger Coordinates: (" + passenger2.getX() + ", " + passenger2.getY() + ")");
+        // Create a new passenger with specific values
+        Passenger passenger2 = new Passenger("Alice", "Smith", 2, 3, 10, 15);
+        System.out.println("Passenger ID: " + passenger2.getId());
+        System.out.println("Passenger Name: " + passenger2.getFirstName() + " " + passenger2.getLastName());
+        System.out.println("Passenger From: (" + passenger2.getFromX() + ", " + passenger2.getFromY() + ")");
+        System.out.println("Passenger To: (" + passenger2.getToX() + ", " + passenger2.getToY() + ")");
+        System.out.printf("Passenger Distance: %.2f \n", passenger2.calculateDistance());
     }
 }

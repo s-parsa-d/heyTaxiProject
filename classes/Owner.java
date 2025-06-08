@@ -55,7 +55,7 @@ public class Owner {
         return BASERATE + distance * 2 ;
     }
 
-    public Driver findNearestDriver(Passenger passenger) {
+    public String findNearestDriver(Passenger passenger) {
         
         if (drivers.isEmpty()) {
             return null; // اگر هیچ راننده‌ای وجود نداشته باشه
@@ -73,7 +73,7 @@ public class Owner {
             }
         }
 
-        return nearest;
+        return nearest.getName();
     }
 
     // شروع سفر

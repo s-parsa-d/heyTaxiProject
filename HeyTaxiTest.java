@@ -33,6 +33,9 @@ public class HeyTaxiTest {
         System.out.println("Passenger To: (" + passenger2.getToX() + ", " + passenger2.getToY() + ")");
         System.out.printf("Passenger Distance: %.2f \n", passenger2.calculateDistance());
 
-        System.out.printf("price for p2 %.2f \n", owner.calculatePrice(passenger2)); 
+        System.out.printf("price for p2 %.2f \n", owner.calculatePrice(passenger2));
+        owner.addDriver(driver1);
+        owner.addDriver(driver2);
+        System.out.println(owner.findNearestDriver(passenger2)); 
     }
 }

@@ -17,18 +17,6 @@ public class Owner {
     private Date tripEndTime;
     private String tripStatus =  STATUS[0]; // وضعیت اولیه
 
-    //  public Owner() {
-    //      this.factor = 1; // مقدار پیش‌فرض برای ضریب قیمت
-    //  }
-
-    //  public int getFactor() {
-    //      return factor;
-    //  }
-
-    //  public void setFactor(int factor) { 
-    //      this.factor = factor;
-    //  }
-
     // Getter for drivers list
     public ArrayList<Driver> getDrivers() {
         return drivers;
@@ -72,8 +60,8 @@ public class Owner {
                 nearest = driver;         
             }
         }
-
-        return nearest.getName();
+        nearest.setFlag(true);
+        return nearest.getFirstName() + nearest.getLastName();
     }
 
     // شروع سفر

@@ -8,13 +8,15 @@ public class HeyTaxiTest {
         // Create a new driver with default values
         Driver driver1 = new Driver();
         System.out.println("Driver ID: " + driver1.getId());
-        System.out.println("Driver Name: " + driver1.getName());
+        System.out.println("Driver FName: " + driver1.getFirstName());
+        System.out.println("Driver LName: " + driver1.getLastName());
         System.out.println("Driver Coordinates: (" + driver1.getX() + ", " + driver1.getY() + ")");
         
         // Create a new driver with specific values
-        Driver driver2 = new Driver(10, 20, "John Doe");
+        Driver driver2 = new Driver(10, 20, "John", "Doe");
         System.out.println("Driver ID: " + driver2.getId());
-        System.out.println("Driver Name: " + driver2.getName());
+        System.out.println("Driver FName: " + driver2.getFirstName());
+        System.out.println("Driver LName: " + driver2.getLastName());
         System.out.println("Driver Coordinates: (" + driver2.getX() + ", " + driver2.getY() + ")");
 
         // Create a new passenger with default values
@@ -37,5 +39,6 @@ public class HeyTaxiTest {
         owner.addDriver(driver1);
         owner.addDriver(driver2);
         System.out.println(owner.findNearestDriver(passenger2)); 
+        System.out.println(driver1.getFlag());
     }
 }

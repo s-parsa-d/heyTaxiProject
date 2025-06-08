@@ -1,8 +1,10 @@
 import classes.Driver;
+import classes.Owner;
 import classes.Passenger;
 
 public class HeyTaxiTest {
     public static void main(String[] args) {
+        Owner owner = new Owner();
         // Create a new driver with default values
         Driver driver1 = new Driver();
         System.out.println("Driver ID: " + driver1.getId());
@@ -30,5 +32,7 @@ public class HeyTaxiTest {
         System.out.println("Passenger From: (" + passenger2.getFromX() + ", " + passenger2.getFromY() + ")");
         System.out.println("Passenger To: (" + passenger2.getToX() + ", " + passenger2.getToY() + ")");
         System.out.printf("Passenger Distance: %.2f \n", passenger2.calculateDistance());
+
+        System.out.printf("price for p2 %.2f \n", owner.calculatePrice(passenger2)); 
     }
 }

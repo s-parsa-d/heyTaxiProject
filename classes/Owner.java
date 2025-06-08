@@ -17,17 +17,17 @@ public class Owner {
     private Date tripEndTime;
     private String tripStatus =  STATUS[0]; // وضعیت اولیه
 
-     public Owner() {
-         this.factor = 1; // مقدار پیش‌فرض برای ضریب قیمت
-     }
+    //  public Owner() {
+    //      this.factor = 1; // مقدار پیش‌فرض برای ضریب قیمت
+    //  }
 
-     public int getFactor() {
-         return factor;
-     }
+    //  public int getFactor() {
+    //      return factor;
+    //  }
 
-     public void setFactor(int factor) { 
-         this.factor = factor;
-     }
+    //  public void setFactor(int factor) { 
+    //      this.factor = factor;
+    //  }
 
     // Getter for drivers list
     public ArrayList<Driver> getDrivers() {

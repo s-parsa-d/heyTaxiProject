@@ -61,7 +61,8 @@ public class Owner {
             }
         }
         nearest.setFlag(true);
-        return nearest.getFirstName() + nearest.getLastName();
+        startTrip(passenger, nearest);
+        return nearest.getFirstName() + " " + nearest.getLastName();
     }
 
     // شروع سفر
@@ -76,7 +77,7 @@ public class Owner {
         this.tripStartTime = new Date();
         this.tripStatus = STATUS[1];
 
-        System.out.println("your trip has begun at this time :  " + tripStartTime);
+        System.out.println("your trip has begun at this time :  " + tripStartTime + " by " + driver.getFirstName() + " " + driver.getLastName());
     }
 
     public void endTrip(Passenger passenger , Driver driver){
@@ -87,5 +88,6 @@ public class Owner {
         this.tripEndTime = new Date();
         this.tripStatus = STATUS[2];
         System.out.println("your trip ends at this time :  " + tripEndTime);
+        driver.setFlag(false);
     }
 }

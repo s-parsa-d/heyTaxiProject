@@ -11,14 +11,14 @@ public class Driver {
     private boolean is_in_travel = false;
 
     // Default constructor initializes with default values
-    public Driver() {
-        this.firstName = "Driver" + id_counter; // Default name based on ID
-        this.lastName = " ";
-        this.id = id_counter++;
-        this.x = 0;
-        this.y = 0;
-        this.is_in_travel = false;
-    }
+    // public Driver() {
+    //     this.firstName = "Driver" + id_counter; // Default name based on ID
+    //     this.lastName = " ";
+    //     this.id = id_counter++;
+    //     this.x = 0;
+    //     this.y = 0;
+    //     this.is_in_travel = false;
+    // }
 
     // Constructor with coordinates and name
     public Driver(int x, int y, String firstName, String lastName) {
@@ -56,5 +56,10 @@ public class Driver {
         int dx = this.x - x;
         int dy = this.y - y;
         return Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+    }
+
+    @Override
+    public String toString() {
+        return firstName + " " + lastName + " " + id + " " + is_in_travel;
     }
 }

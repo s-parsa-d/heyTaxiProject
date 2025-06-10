@@ -98,7 +98,7 @@ public class Owner {
 
     public void printAllTravels() {
         for (Travel travel : allTravels) {
-            System.out.printf("Passenger %d → Driver %d | Status:   %s|Start Trip:   %.2f| End Trip:   %.2f%n",travel.getPassenger().getId(),travel.getDriver().getId(),travel.getStatus());
+            System.out.printf("Passenger %d → Driver %d | Status:   %s|Start Trip:   %.2f| End Trip:   %.2f \n",travel.getPassenger().getId(),travel.getDriver().getId(),travel.getStatus());
         }
     }
 }

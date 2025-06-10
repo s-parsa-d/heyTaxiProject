@@ -18,8 +18,8 @@ public class Travel {
         this.toY = toY ;
         this.distance = distance ;
         this.status = status ;
-        this.startTrip = startTime ;
-        this.endTrip = endTime ;
+        this.startTime = startTime ;
+        this.endTime = endTime ;
     }
     
     // Getters

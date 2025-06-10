@@ -16,16 +16,16 @@ public class TravelCSVWriter {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
             for (Travel travel : travels) {
-                Passenger p = travel.getPassenger();
-                Driver d = travel.getDriver();
+                Passenger passenger = travel.getPassenger();
+                Driver driver = travel.getDriver();
 
-                writer.append(p.getId() + ",");
-                writer.append(p.getFirstName() + " " + p.getLastName() + ",");
-                writer.append(p.getFromX() + "," + p.getFromY() + ",");
-                writer.append(p.getToX() + "," + p.getToY() + ",");
-                writer.append(d.getId() + ",");
-                writer.append(d.getFirstName() + " " + d.getLastName() + ",");
-                writer.append(d.getX() + "," + d.getY() + ",");
+                writer.append(passenger.getId() + ",");
+                writer.append(passenger.getFirstName() + " " + passenger.getLastName() + ",");
+                writer.append(passenger.getFromX() + "," + passenger.getFromY() + ",");
+                writer.append(passenger.getToX() + "," + passenger.getToY() + ",");
+                writer.append(driver.getId() + ",");
+                writer.append(driver.getFirstName() + " " + driver.getLastName() + ",");
+                writer.append(driver.getX() + "," + driver.getY() + ",");
                 writer.append(travel.getStatus() + ",");
 
                 // تاریخ شروع

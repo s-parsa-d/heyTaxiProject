@@ -1,7 +1,6 @@
 package classes;
 public class Driver {
 
-    
     private static int id_counter = 1; // Static counter for unique IDs
     private String firstName;
     private String lastName;
@@ -9,16 +8,6 @@ public class Driver {
     private int x;
     private int y;
     private boolean is_in_travel = false;
-
-    // Default constructor initializes with default values
-    // public Driver() {
-    //     this.firstName = "Driver" + id_counter; // Default name based on ID
-    //     this.lastName = " ";
-    //     this.id = id_counter++;
-    //     this.x = 0;
-    //     this.y = 0;
-    //     this.is_in_travel = false;
-    // }
 
     // Constructor with coordinates and name
     public Driver(int x, int y, String firstName, String lastName) {
@@ -52,9 +41,9 @@ public class Driver {
         is_in_travel = flag;
     }
 
-    public double distanceTo(int x, int y) {
-        int dx = this.x - x;
-        int dy = this.y - y;
+    public double distanceToPassenger(Passenger passenger) {
+        int dx = this.x - passenger.getFromX();
+        int dy = this.y - passenger.getFromY();
         return Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
     }
 

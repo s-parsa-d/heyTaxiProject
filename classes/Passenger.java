@@ -1,24 +1,14 @@
 package classes;
 public class Passenger {
+
+    private static int nextId = 1;
     private String firstName;
     private String lastName;
     private int fromX;
     private int fromY;
     private int toX;
     private int toY;
-    private static int nextId = 1;
     private final int id;
-
-    // public Passenger() {
-    //     this.firstName = "name" + nextId;
-    //     this.lastName = "lastName" + nextId;
-    //     // Default coordinates
-    //     this.fromX = 0;
-    //     this.fromY = 0;
-    //     this.toX = 0;
-    //     this.toY = 0;
-    //     this.id = nextId++;
-    // }
 
     public Passenger(String firstName, String lastName, int fromX, int fromY, int toX, int toY) {
         this.firstName = firstName;
@@ -67,6 +57,6 @@ public class Passenger {
 
     @Override
     public String toString() {
-        return firstName + " " + lastName + id ;
+        return firstName + " " + lastName + " id: " + id ;
     }
 }

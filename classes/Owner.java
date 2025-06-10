@@ -12,11 +12,6 @@ public class Owner {
     private ArrayList<Driver> drivers = new ArrayList<>();
     private ArrayList<Passenger> passengers = new ArrayList<>();
 
-    
-    //private Map<Passenger, Travel> passengerTravelMap = new HashMap<>();
-    //private Map<Driver, Travel> driverTravelMap = new HashMap<>();
-    //private List<Travel> allTravels = new ArrayList<>()
-
     // ✅ لیست تمام سفرها
     private List<Travel> allTravels = new ArrayList<>(); 
 
@@ -55,10 +50,10 @@ public class Owner {
         }
 
         Driver nearest = drivers.get(0);
-        double minDistance = nearest.distanceTo(passenger.getFromX(), passenger.getFromY());
+        double minDistance = nearest.distanceToPassenger(passenger);
 
         for (Driver driver : drivers) {
-            double currentDistance = driver.distanceTo(passenger.getFromX(), passenger.getFromY());
+            double currentDistance = driver.distanceToPassenger(passenger);
             if (currentDistance < minDistance) {
                 minDistance = currentDistance;  
                 nearest = driver;         
@@ -104,7 +99,7 @@ public class Owner {
                 travel.getStatus().equals("ONGOING")) {
                 
                 travel.setEndTripTime(this.tripEndTime);
-                travel.setStatus("END");
+                travel.setStatus(STATUS[2]);
                 break;
             }
         }

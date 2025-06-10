@@ -138,6 +138,11 @@ public void printAllTravels() {
         System.out.println("-----------------------------");
     }
 }
+
+// Add this method to your Owner.java class
+public List<Travel> getAllTravels() {
+    return allTravels;
+    }
 }
 
 

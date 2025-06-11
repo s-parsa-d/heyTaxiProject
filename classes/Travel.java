@@ -1,23 +1,20 @@
 package classes;
 
 import java.util.Date;
-public class Travel{
-    public Travel(Passenger passenger , Driver driver , int fromX , int fromY , int toX , int toY , double  distance , String status ,long startTime , long endTime){
-        this.passenger = passenger ; 
-        this.driver = driver ;
-        this.fromX = fromX ;
-        this.fromY = fromY ; 
-        this.toX = toX ; 
-        this.toY = toY ;
-        this.distance = distance ;
-        this.status = status ;
-        this.startTime = startTime ;
-        this.endTime = endTime ;
-    }
-    
-    // Getters
-    public Driver getDriver() {
-        return driver;
+
+public class Travel {
+    private Passenger passenger;
+    private Driver driver;
+    private String status;
+    private Date startTripTime;
+    private Date endTripTime;
+
+    public Travel(Passenger passenger, Driver driver, String status) {
+        this.passenger = passenger;
+        this.driver = driver;
+        this.status = status;
+        this.startTripTime = null;
+        this.endTripTime = null;
     }
 
     public Passenger getPassenger() {
@@ -40,15 +37,15 @@ public class Travel{
         return startTripTime;
     }
 
-    public void setStartTripTime(Date date) {
-        this.startTripTime = date;
+    public void setStartTripTime(Date startTripTime) {
+        this.startTripTime = startTripTime;
     }
 
     public Date getEndTripTime() {
         return endTripTime;
     }
 
-    public void setEndTripTime(Date date) {
-        this.endTripTime = date;
+    public void setEndTripTime(Date endTripTime) {
+        this.endTripTime = endTripTime;
     }
 }

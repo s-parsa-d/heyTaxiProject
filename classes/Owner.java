@@ -84,29 +84,10 @@ public class Owner {
 
         System.out.println("your trip has begun at this time :  " + tripStartTime + " by " + driver.getFirstName() + " " + driver.getLastName());
     }
-
-   
-
-  
-public void endTrip(Passenger passenger, Driver driver) {
-    if (!tripStatus.equals(STATUS[1])) { // Corrected condition to check for "ONGOING" status
-        System.out.println("There is no ongoing trip!");
-        return;
-    }
-    this.tripEndTime = new Date();
-    this.tripStatus = STATUS[2]; // Update trip status to "END"
-    System.out.println("Your trip ends at this time: " + tripEndTime);
-    driver.setFlag(false);
-}
-this.tripEndTime = new Date();
-this.tripStatus = STATUS[2];
-
-// پیدا کردن سفر مرتبط
-for (Travel travel : allTravels) {
-    if (travel.getPassenger().getId() == passenger.getId() && travel.getStatus().equals("ONGOING")) {
-        travel.setEndTripTime(this.tripEndTime);
-        travel.setStatus("END");
-        break;
+    public void printAllTravels() {
+        for (Travel travel : allTravels) {
+            System.out.printf("Passenger %d → Driver %d | Status:   %s|Start Trip:   %.2f| End Trip:   %.2f \n",travel.getPassenger().getId(),travel.getDriver().getId(),travel.getStatus());
+        }
     }
 }
 

@@ -22,18 +22,6 @@ public class Owner {
     private Date tripEndTime;
     private String tripStatus =  STATUS[0]; // وضعیت اولیه
 
-    //  public Owner() {
-    //      this.factor = 1; // مقدار پیش‌فرض برای ضریب قیمت
-    //  }
-
-    //  public int getFactor() {
-    //      return factor;
-    //  }
-
-    //  public void setFactor(int factor) { 
-    //      this.factor = factor;
-    //  }
-
     // Getter for drivers list
     public ArrayList<Driver> getDrivers() {
         return drivers;
@@ -60,7 +48,7 @@ public class Owner {
         return BASERATE + distance * 2 ;
     }
 
-    public Driver findNearestDriver(Passenger passenger) {
+    public String findNearestDriver(Passenger passenger) {
         
         if (drivers.isEmpty()) {
             return null; // اگر هیچ راننده‌ای وجود نداشته باشه
@@ -77,8 +65,9 @@ public class Owner {
                 nearest = driver;         
             }
         }
-
-        return nearest;
+        nearest.setFlag(true);
+        startTrip(passenger, nearest);
+        return nearest.getFirstName() + " " + nearest.getLastName();
     }
 
     // شروع سفر
@@ -93,7 +82,7 @@ public class Owner {
         this.tripStartTime = new Date();
         this.tripStatus = STATUS[1];
 
-        System.out.println("your trip has begun at this time :  " + tripStartTime);
+        System.out.println("your trip has begun at this time :  " + tripStartTime + " by " + driver.getFirstName() + " " + driver.getLastName());
     }
 
     public void endTrip(Passenger passenger , Driver driver){
@@ -104,6 +93,7 @@ public class Owner {
         this.tripEndTime = new Date();
         this.tripStatus = STATUS[2];
         System.out.println("your trip ends at this time :  " + tripEndTime);
+        driver.setFlag(false);
     }
 
     public void printAllTravels() {

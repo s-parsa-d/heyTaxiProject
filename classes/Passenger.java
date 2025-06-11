@@ -9,16 +9,16 @@ public class Passenger {
     private static int nextId = 1;
     private final int id;
 
-    public Passenger() {
-        this.firstName = "name" + nextId;
-        this.lastName = "lastName" + nextId;
-        // Default coordinates
-        this.fromX = 0;
-        this.fromY = 0;
-        this.toX = 0;
-        this.toY = 0;
-        this.id = nextId++;
-    }
+    // public Passenger() {
+    //     this.firstName = "name" + nextId;
+    //     this.lastName = "lastName" + nextId;
+    //     // Default coordinates
+    //     this.fromX = 0;
+    //     this.fromY = 0;
+    //     this.toX = 0;
+    //     this.toY = 0;
+    //     this.id = nextId++;
+    // }
 
     public Passenger(String firstName, String lastName, int fromX, int fromY, int toX, int toY) {
         this.firstName = firstName;
@@ -63,5 +63,10 @@ public class Passenger {
         int dy = toY - fromY;
         double distance = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
         return distance;
+    }
+
+    @Override
+    public String toString() {
+        return firstName + " " + lastName + id ;
     }
 }

@@ -1,98 +1,118 @@
 package classes;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
 public class Owner {
 
     private final int BASERATE = 20;
-    private final String[] STATUS = {"PENDING", "ONGOING", "END", "CANCEL"}; 
-
+    private final String[] STATUS = {"PENDING", "ONGOING", "END", "CANCEL"};
+    
     private ArrayList<Driver> drivers = new ArrayList<>();
     private ArrayList<Passenger> passengers = new ArrayList<>();
 
+    
     //private Map<Passenger, Travel> passengerTravelMap = new HashMap<>();
     //private Map<Driver, Travel> driverTravelMap = new HashMap<>();
-    //private List<Travel> allTravels = new ArrayList<>();
+    //private List<Travel> allTravels = new ArrayList<>()
+
+    // ✅ لیست تمام سفرها
+    private List<Travel> allTravels = new ArrayList<>(); 
 
     private Passenger currentPassenger;
     private Driver currentDriver;
     private Date tripStartTime;
     private Date tripEndTime;
-    private String tripStatus =  STATUS[0]; // وضعیت اولیه
+    private String tripStatus = STATUS[0]; // وضعیت اولیه
 
-    // Getter for drivers list
     public ArrayList<Driver> getDrivers() {
         return drivers;
     }
 
-    // Getter for passengers list
     public ArrayList<Passenger> getPassengers() {
         return passengers;
     }
 
-    // Method to add a driver
     public void addDriver(Driver driver) {
         drivers.add(driver);
     }
 
-    // Method to add a passenger
     public void addPassenger(Passenger passenger) {
         passengers.add(passenger);
     }
 
-    // محاسبه قیمت بر اساس فاصله یک مسافر خاص
     public double calculatePrice(Passenger passenger) {
         double distance = passenger.calculateDistance();
-        return BASERATE + distance * 2 ;
+        return BASERATE + distance * 2;
     }
 
-    public String findNearestDriver(Passenger passenger) {
-        
+    // ✅ تغییر: نوع خروجی الان Driver است، نه String
+    public Driver findNearestDriver(Passenger passenger) {
         if (drivers.isEmpty()) {
-            return null; // اگر هیچ راننده‌ای وجود نداشته باشه
+            System.out.println("No available drivers.");
+            return null;
         }
 
-        Driver nearest = drivers.get(0); // اولین راننده رو به عنوان نزدیک‌ترین در نظر می‌گیریم
-        double minDistance = nearest.distanceTo(passenger.getFromX(), passenger.getFromY()); // فاصله اولین راننده
+        Driver nearest = drivers.get(0);
+        double minDistance = nearest.distanceTo(passenger.getFromX(), passenger.getFromY());
 
         for (Driver driver : drivers) {
-            double currentDistance = driver.distanceTo(passenger.getFromX(), passenger.getFromY()); // فاصله راننده فعلی
-            
+            double currentDistance = driver.distanceTo(passenger.getFromX(), passenger.getFromY());
             if (currentDistance < minDistance) {
                 minDistance = currentDistance;  
                 nearest = driver;         
             }
         }
-        nearest.setFlag(true);
-        startTrip(passenger, nearest);
-        return nearest.getFirstName() + " " + nearest.getLastName();
+
+        return nearest;
     }
 
-    // شروع سفر
+    // ✅ تغییر: ثبت سفر توی allTravels
     public void startTrip(Passenger passenger, Driver driver) {
         if (!passengers.contains(passenger) || !drivers.contains(driver)) {
-            System.out.println("passenger or driver not valid !");
+            System.out.println("Passenger or driver not valid !");
             return;
         }
 
         this.currentPassenger = passenger;
         this.currentDriver = driver;
         this.tripStartTime = new Date();
-        this.tripStatus = STATUS[1];
+        this.tripStatus = STATUS[1]; // ONGOING
 
-        System.out.println("your trip has begun at this time :  " + tripStartTime + " by " + driver.getFirstName() + " " + driver.getLastName());
+        // ✅ ثبت سفر در Travel
+        Travel travel = new Travel(passenger, driver, "ONGOING");
+        travel.setStartTripTime(this.tripStartTime);
+        allTravels.add(travel);
+
+        System.out.println("Your trip has begun at this time: " + tripStartTime + " with driver " + driver.getFirstName() + " " + driver.getLastName());
     }
-    public void printAllTravels() {
-        for (Travel travel : allTravels) {
-            System.out.printf("Passenger %d → Driver %d | Status:   %s|Start Trip:   %.2f| End Trip:   %.2f \n",travel.getPassenger().getId(),travel.getDriver().getId(),travel.getStatus());
+
+    public void endTrip(Passenger passenger, Driver driver) {
+        if (!tripStatus.equals(STATUS[1])) {
+            System.out.println("There is no ongoing trip!");
+            return;
         }
+
+        this.tripEndTime = new Date();
+        this.tripStatus = STATUS[2];
+
+        // ✅ پیدا کردن سفر مرتبط و آپدیتش
+        for (Travel travel : allTravels) {
+            if (travel.getPassenger().getId() == passenger.getId() && 
+                travel.getDriver().getId() == driver.getId() &&
+                travel.getStatus().equals("ONGOING")) {
+                
+                travel.setEndTripTime(this.tripEndTime);
+                travel.setStatus("END");
+                break;
+            }
+        }
+
+        System.out.println("Your trip ended at this time: " + tripEndTime);
     }
-}
 
-System.out.println("Your trip ended at this time: " + tripEndTime);
-
+    // ✅ متد جدید: چاپ تمام سفرها
 public void printAllTravels() {
     if (allTravels.isEmpty()) {
         System.out.println("No trips recorded yet.");

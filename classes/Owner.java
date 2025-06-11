@@ -1,6 +1,7 @@
 package classes;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 public class Owner {
@@ -10,6 +11,10 @@ public class Owner {
 
     private ArrayList<Driver> drivers = new ArrayList<>();
     private ArrayList<Passenger> passengers = new ArrayList<>();
+
+    //private Map<Passenger, Travel> passengerTravelMap = new HashMap<>();
+    //private Map<Driver, Travel> driverTravelMap = new HashMap<>();
+    //private List<Travel> allTravels = new ArrayList<>();
 
     private Passenger currentPassenger;
     private Driver currentDriver;
@@ -99,5 +104,11 @@ public class Owner {
         this.tripEndTime = new Date();
         this.tripStatus = STATUS[2];
         System.out.println("your trip ends at this time :  " + tripEndTime);
+    }
+
+    public void printAllTravels() {
+        for (Travel travel : allTravels) {
+            System.out.printf("Passenger %d → Driver %d | Status:   %s|Start Trip:   %.2f| End Trip:   %.2f%n",travel.getPassenger().getId(),travel.getDriver().getId(),travel.getStatus());
+        }
     }
 }

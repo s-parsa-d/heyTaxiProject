@@ -85,20 +85,65 @@ public class Owner {
         System.out.println("your trip has begun at this time :  " + tripStartTime + " by " + driver.getFirstName() + " " + driver.getLastName());
     }
 
-    public void endTrip(Passenger passenger , Driver driver){
-        if(!tripStatus.equals("Ongoing")){
-            System.out.println("there is no trip !");
-            return; 
-        }
-        this.tripEndTime = new Date();
-        this.tripStatus = STATUS[2];
-        System.out.println("your trip ends at this time :  " + tripEndTime);
-        driver.setFlag(false);
-    }
+   
 
-    public void printAllTravels() {
-        for (Travel travel : allTravels) {
-            System.out.printf("Passenger %d → Driver %d | Status:   %s|Start Trip:   %.2f| End Trip:   %.2f%n",travel.getPassenger().getId(),travel.getDriver().getId(),travel.getStatus());
-        }
+  
+public void endTrip(Passenger passenger, Driver driver) {
+    if (!tripStatus.equals(STATUS[1])) { // Corrected condition to check for "ONGOING" status
+        System.out.println("There is no ongoing trip!");
+        return;
+    }
+    this.tripEndTime = new Date();
+    this.tripStatus = STATUS[2]; // Update trip status to "END"
+    System.out.println("Your trip ends at this time: " + tripEndTime);
+    driver.setFlag(false);
+}
+this.tripEndTime = new Date();
+this.tripStatus = STATUS[2];
+
+// پیدا کردن سفر مرتبط
+for (Travel travel : allTravels) {
+    if (travel.getPassenger().getId() == passenger.getId() && travel.getStatus().equals("ONGOING")) {
+        travel.setEndTripTime(this.tripEndTime);
+        travel.setStatus("END");
+        break;
     }
 }
+
+System.out.println("Your trip ended at this time: " + tripEndTime);
+
+public void printAllTravels() {
+    if (allTravels.isEmpty()) {
+        System.out.println("No trips recorded yet.");
+        return;
+    }
+
+    for (int i = 0; i < allTravels.size(); i++) {
+        Travel travel = allTravels.get(i);
+        System.out.println("Trip #" + (i + 1));
+        System.out.println("Passenger ID: " + travel.getPassenger().getId());
+        System.out.println("Driver ID: " + travel.getDriver().getId());
+        System.out.println("Status: " + travel.getStatus());
+
+        // زمان شروع
+        if (travel.getStartTripTime() != null) {
+            System.out.println("Start Time: " + travel.getStartTripTime().toString());
+        } else {
+            System.out.println("Start Time: Not started");
+        }
+
+        // زمان پایان
+        if (travel.getEndTripTime() != null) {
+            System.out.println("End Time: " + travel.getEndTripTime().toString());
+        } else {
+            System.out.println("End Time: Not ended");
+        }
+
+        System.out.println("-----------------------------");
+    }
+}
+
+}
+
+
+

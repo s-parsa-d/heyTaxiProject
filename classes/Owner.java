@@ -142,7 +142,6 @@ public void printAllTravels() {
         System.out.println("-----------------------------");
     }
 }
-
 }
 
 

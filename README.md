@@ -25,6 +25,9 @@ ROOT
         ├── Travel.class
         └── TravelCSVWriter.class
 ```
+## CSV file
+- `travels_report.csv` 
+- - (PassengerID, PassengerName, fromX, fromY, ToX, ToY, DriverID, DriverName, DriverX, DriverY, TravelStatus, StartTime, EndTime)
 
 ## How to Run
 

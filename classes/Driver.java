@@ -40,7 +40,7 @@ public class Driver {
     public void setFlag(boolean flag){
         is_in_travel = flag;
     }
-
+    // function for distance
     public double distanceToPassenger(Passenger passenger) {
         int dx = this.x - passenger.getFromX();
         int dy = this.y - passenger.getFromY();

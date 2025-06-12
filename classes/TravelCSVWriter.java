@@ -12,7 +12,7 @@ public class TravelCSVWriter {
             // Header
             writer.append("PassengerId,PassengerName,FromX,FromY,ToX,ToY,DriverId,DriverName,DriverX,DriverY,TravelStatus,StartTime,EndTime\n");
 
-            // Format تاریخ
+            // Format
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
             for (Travel travel : travels) {
@@ -28,13 +28,13 @@ public class TravelCSVWriter {
                 writer.append(driver.getX() + "," + driver.getY() + ",");
                 writer.append(travel.getStatus() + ",");
 
-                // تاریخ شروع
+                // start time
                 if (travel.getStartTripTime() != null)
                     writer.append(sdf.format(travel.getStartTripTime()) + ",");
                 else
                     writer.append("null,");
 
-                // تاریخ پایان
+                // end time
                 if (travel.getEndTripTime() != null)
                     writer.append(sdf.format(travel.getEndTripTime()));
                 else

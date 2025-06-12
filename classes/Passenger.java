@@ -10,6 +10,7 @@ public class Passenger {
     private int toY;
     private final int id;
 
+    // Constructor with coordinates and name
     public Passenger(String firstName, String lastName, int fromX, int fromY, int toX, int toY) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -20,6 +21,7 @@ public class Passenger {
         this.id = nextId++;
     }
 
+    // Getter
     public String getFirstName() {
         return firstName;
     }

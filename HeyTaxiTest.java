@@ -1,6 +1,6 @@
-import classes.Driver;
-import classes.Owner;
-import classes.Passenger;
+import classes.*;
+
+
 
 public class HeyTaxiTest {
     public static void main(String[] args) {
@@ -71,7 +71,7 @@ public class HeyTaxiTest {
         // برای این کار یک متد get در Owner اضافه می‌کنیم
         // public List<Travel> getAllTravels() { return allTravels; }
         // فرض می‌کنیم این متد را اضافه کرده‌ایم
-        // TravelCSVWriter.writeToCSV(owner.getAllTravels(), "travels_report.csv");
+        TravelCSVWriter.writeToCSV(owner.getAllTravels(), "travels_report.csv");
         
         // یک راه حل بدون تغییر Owner: لیست را مستقیما به نویسنده CSV پاس دهیم
         // این کار در ساختار فعلی ممکن نیست، پس باید متد getAllTravels را به Owner اضافه کنید.

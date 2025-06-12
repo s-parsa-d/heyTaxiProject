@@ -1,7 +1,5 @@
 import classes.*;
 
-
-
 public class HeyTaxiTest {
     public static void main(String[] args) {
         // 1. یک نمونه از Owner می‌سازیم که کسب و کار ما را مدیریت می‌کند
@@ -55,23 +53,27 @@ public class HeyTaxiTest {
         Driver nearestDriverForP2 = owner.findNearestDriver(passenger2);
         System.out.println("Nearest driver found: " + nearestDriverForP2.getFirstName()); // انتظار می‌رود Maryam پیدا شود
         
-        // 9. سفر دوم را شروع می‌کنیم (اما تمام نمی‌کنیم تا وضعیتش ONGOING بماند)
+        // 9. قیمت سفر را محاسبه می‌کنیم
+        double priceForP2 = owner.calculatePrice(passenger2);
+        System.out.printf("Estimated price for the trip: %.2f\n", priceForP2);
+
+        // 10. سفر دوم را شروع می‌کنیم (اما تمام نمی‌کنیم تا وضعیتش ONGOING بماند)
         owner.startTrip(passenger2, nearestDriverForP2);
         System.out.println("--- Trip Scenario 2 Started (and is ongoing) ---");
 
         System.out.println("------------------------------------------");
 
-        // 10. در انتها، گزارش تمام سفرها را در کنسول چاپ می‌کنیم
+        // 11. در انتها، گزارش تمام سفرها را در کنسول چاپ می‌کنیم
         System.out.println("\n--- Final Report of All Travels ---");
         owner.printAllTravels();
         
-        // 11. گزارش کامل را در یک فایل CSV ذخیره می‌کنیم
+        // 12. گزارش کامل را در یک فایل CSV ذخیره می‌کنیم
         System.out.println("\n--- Writing all travels to CSV file ---");
         // چون متد getTravels در Owner وجود ندارد، لیست سفرها را باید از جایی بگیریم
         // برای این کار یک متد get در Owner اضافه می‌کنیم
         // public List<Travel> getAllTravels() { return allTravels; }
         // فرض می‌کنیم این متد را اضافه کرده‌ایم
-        TravelCSVWriter.writeToCSV(owner.getAllTravels(), "travels_report.csv");
+        TravelCSVWriter.writeToCSV(owner.getAllTravels(), "travels.csv");
         
         // یک راه حل بدون تغییر Owner: لیست را مستقیما به نویسنده CSV پاس دهیم
         // این کار در ساختار فعلی ممکن نیست، پس باید متد getAllTravels را به Owner اضافه کنید.

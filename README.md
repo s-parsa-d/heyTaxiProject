@@ -41,7 +41,7 @@ Make sure you have Java installed. You can run the project using the following s
     ```bash
     javc -cp bin HeyTaxiTest
 
-## Developers
+## collaborators
 
 This project was built and maintained by the following contributors:
 

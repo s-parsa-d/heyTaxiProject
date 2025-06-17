@@ -39,7 +39,7 @@ Make sure you have Java installed. You can run the project using the following s
 
 2. Run the code:
     ```bash
-    javc -cp bin HeyTaxiTest
+    java -cp bin HeyTaxiTest
 
 ## collaborators
 

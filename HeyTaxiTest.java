@@ -22,8 +22,8 @@ public class HeyTaxiTest {
         owner.addPassenger(passenger1);
         owner.addPassenger(passenger2);
         
-        // --- Trip Scenario 1 ---
-        System.out.println("\n--- Starting Trip Scenario 1 for " + passenger1.getFirstName() + " ---");
+        // --- Trip 1 ---
+        System.out.println("\n--- Starting Trip 1 for " + passenger1.getFirstName() + " ---");
         
         // 4. Find the nearest driver for the first passenger
         System.out.println("Finding nearest driver for " + passenger1.getFirstName() +
@@ -42,12 +42,12 @@ public class HeyTaxiTest {
         // (in a real app you might have a delay here)
         System.out.println("Trip is ongoing...");
         owner.endTrip(passenger1, nearestDriverForP1);
-        System.out.println("--- Trip Scenario 1 Finished ---");
+        System.out.println("--- Trip 1 Finished ---");
         
         System.out.println("------------------------------------------");
         
-        // --- Trip Scenario 2 ---
-        System.out.println("\n--- Starting Trip Scenario 2 for " + passenger2.getFirstName() + " ---");
+        // --- Trip 2 ---
+        System.out.println("\n--- Starting Trip 2 for " + passenger2.getFirstName() + " ---");
         
         // 8. Find the nearest driver for the second passenger
         System.out.println("Finding nearest driver for " + passenger2.getFirstName() +
@@ -61,7 +61,7 @@ public class HeyTaxiTest {
 
         // 10. Start the second trip (leave it ongoing)
         owner.startTrip(passenger2, nearestDriverForP2);
-        System.out.println("--- Trip Scenario 2 Started (and is ongoing) ---");
+        System.out.println("--- Trip 2 Started (and is ongoing) ---");
 
         System.out.println("------------------------------------------");
 

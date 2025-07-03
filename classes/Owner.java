@@ -44,8 +44,7 @@ public class Owner {
     }
 
     public double calculatePrice(Passenger passenger) {
-        double distance = passenger.calculateDistance();
-        return BASERATE + distance * 2;
+        return BASERATE + passenger.calculateDistance() * 2;
     }
 
     // function for find nearst driver

@@ -7,7 +7,7 @@ public class Driver {
     private int id;
     private int x;
     private int y;
-    // private boolean is_in_travel = false;
+    private boolean is_in_travel = false;
 
     // Constructor with coordinates and name
     public Driver(int x, int y, String firstName, String lastName) {
@@ -16,6 +16,7 @@ public class Driver {
         this.id = id_counter++;
         this.x = x;
         this.y = y;
+        this.is_in_travel = false;
     }
 
     // Getters 
@@ -34,12 +35,12 @@ public class Driver {
     public int getId() {
         return id;
     }
-    // public boolean getFlag(){
-    //     return is_in_travel;
-    // }
-    // public void setFlag(boolean flag){
-    //     is_in_travel = flag;
-    // }
+    public boolean getIs_in_travel(){
+        return is_in_travel;
+    }
+    public void setIs_in_travel(boolean flag){
+        is_in_travel = flag;
+    }
     // function for distance
     public double distanceToPassenger(Passenger passenger) {
         int dx = this.x - passenger.getFromX();

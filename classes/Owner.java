@@ -44,8 +44,7 @@ public class Owner {
     }
 
     public double calculatePrice(Passenger passenger) {
-        double distance = passenger.calculateDistance();
-        return BASERATE + distance * 2;
+        return BASERATE + passenger.calculateDistance() * 2;
     }
 
     // function for find nearst driver
@@ -60,9 +59,10 @@ public class Owner {
 
         for (Driver driver : drivers) {
             double currentDistance = driver.distanceToPassenger(passenger);
-            if (currentDistance < minDistance) {
+            if (currentDistance < minDistance && driver.getIs_in_travel() == false) {
                 minDistance = currentDistance;  
-                nearest = driver;         
+                nearest = driver;     
+                driver.setIs_in_travel(true);    
             }
         }
 
@@ -96,7 +96,7 @@ public class Owner {
 
         this.tripEndTime = new Date() ;
         this.tripStatus = STATUS[2];
-
+        driver.setIs_in_travel(false);
         // find the correct travel
         for (Travel travel : allTravels) {
             if (travel.getPassenger().getId() == passenger.getId() && 

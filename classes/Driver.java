@@ -44,7 +44,7 @@ public class Driver {
     public double distanceToPassenger(Passenger passenger) {
         int dx = this.x - passenger.getFromX();
         int dy = this.y - passenger.getFromY();
-        return Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+        return  Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
     }
 
     @Override

@@ -94,7 +94,7 @@ public class Owner {
             return;
         }
 
-        this.tripEndTime = new Date();
+        this.tripEndTime = new Date() ;
         this.tripStatus = STATUS[2];
 
         // find the correct travel

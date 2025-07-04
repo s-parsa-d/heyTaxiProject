@@ -1,9 +1,12 @@
 import classes.*;
+import java.util.Scanner;
 
 public class HeyTaxiTest {
     public static void main(String[] args) {
         try {
             // 1. Create an Owner instance to manage our business
+            Scanner scanner = new Scanner(System.in);
+
             Owner owner = new Owner();
             System.out.println("HeyTaxi service started!");
 
@@ -22,10 +25,22 @@ public class HeyTaxiTest {
             System.out.println("Total drivers in system: " + owner.getDrivers().size());
             System.out.println("------------------------------------------");
 
+            System.out.println("Please Enter Your Name :");
+            String PassengerName = scanner.nextLine();
+            System.out.println("Please Enter Your Family :");
+            String PassengerFamily = scanner.nextLine();
+            System.out.println("Whats Your Current Location ? (X Y)"); 
+            int fromX = scanner.nextInt();
+            int fromY = scanner.nextInt();
+            System.out.println("Where Do You Want To Go ? (X Y)");
+            int toX = scanner.nextInt();
+            int toY = scanner.nextInt();
+            scanner.close();
+
             // 3. Create two passengers with different trip requests
             Passenger passenger1 = null, passenger2 = null;
             try {
-                passenger1 = new Passenger("Sara", "Ahmadi", 2, 3, 10, 15);
+                passenger1 = new Passenger(PassengerName, PassengerFamily, fromX, fromY, toX, toY);
                 passenger2 = new Passenger("Nima", "Moradi", 18, 22, 30, 40);
                 owner.addPassenger(passenger1);
                 owner.addPassenger(passenger2);

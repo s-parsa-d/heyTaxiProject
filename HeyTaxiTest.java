@@ -4,9 +4,9 @@ import java.util.Scanner;
 public class HeyTaxiTest {
     public static void main(String[] args) {
         try {
-            // 1. Create an Owner instance to manage our business
             Scanner scanner = new Scanner(System.in);
-
+            
+            // 1. Create an Owner instance to manage our business
             Owner owner = new Owner();
             System.out.println("HeyTaxi service started!");
 
@@ -29,10 +29,10 @@ public class HeyTaxiTest {
             String PassengerName = scanner.nextLine();
             System.out.println("Please Enter Your Family :");
             String PassengerFamily = scanner.nextLine();
-            System.out.println("Whats Your Current Location ? (X Y)"); 
+            System.out.println("Whats Your Current Location ? (x,y)"); 
             int fromX = scanner.nextInt();
             int fromY = scanner.nextInt();
-            System.out.println("Where Do You Want To Go ? (X Y)");
+            System.out.println("Where Do You Want To Go ? (x,y)");
             int toX = scanner.nextInt();
             int toY = scanner.nextInt();
             scanner.close();
